@@ -94,4 +94,30 @@ class Citizen extends Database {
 
         return $stmt->execute(['id' => $id]);
     }
+
+    public function total(){
+        return $this->conn->query("SELECT COUNT(*) total FROM citizens")->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function maleCount(){
+        return $this->conn->query("SELECT COUNT(*) total FROM citizens WHERE gender='Male'")->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function femaleCount(){
+        return $this->conn->query("SELECT COUNT(*) total FROM citizens WHERE gender = 'female'")->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function seniorCount(){
+        return $this->conn->query("SELECT COUNT(*) total FROM citizens WHERE senior = 'Yes'")->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function voterCount(){
+        return $this->conn->query("SELECT COUNT(*) total FROM citizens WHERE voter_status = 'Yes'")->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function citizenByZone(){
+        return $this->conn->query("SELECT zone, COUNT(*) total FROM citizens GROUP BY zone");
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

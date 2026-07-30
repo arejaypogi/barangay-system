@@ -8,7 +8,9 @@ use App\Controllers\OfficialController;
 use App\Controllers\HomeController;
 use App\Controllers\DashboardController;
 use App\Controllers\ClearanceController;
+use App\Controllers\HouseholdController;
 use App\Models\Clearance;
+
 
 class Router{
     public function dispatch(){
@@ -82,6 +84,22 @@ class Router{
 
             case '/clearance/generate':
                 (new ClearanceController())->generate();
+                break;
+
+            case '/households':
+                (new HouseholdController())->index();
+                break;
+
+            case '/households/create':
+                (new HouseholdController())->create();
+                break;
+
+            case '/households/store':
+                (new HouseholdController())->store();
+                break;
+
+            case '/households/show':
+                (new HouseholdController())->show();
                 break;
 
             default:

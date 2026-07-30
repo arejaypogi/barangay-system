@@ -38,6 +38,14 @@
 
                 <li class="nav-item">
                     <a class="nav-link text-white"
+                    href="/barangay-system/public/households">
+
+                        Households
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white"
                        href="/barangay-system/public/logout">
 
                         Logout
