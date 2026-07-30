@@ -7,6 +7,8 @@ use App\Controllers\CitizenController;
 use App\Controllers\OfficialController;
 use App\Controllers\HomeController;
 use App\Controllers\DashboardController;
+use App\Controllers\ClearanceController;
+use App\Models\Clearance;
 
 class Router{
     public function dispatch(){
@@ -60,6 +62,26 @@ class Router{
 
             case '/citizens/delete':
                 (new CitizenController())->delete();
+                break;
+
+            case '/officials':
+                (new OfficialController())->index();
+                break;
+
+            case '/officials/create':
+                (new OfficialController())->create();
+                break;
+
+            case '/officials/store':
+                (new OfficialController())->store();
+                break;
+
+            case '/clearance/create':
+                (new ClearanceController())->create();
+                break;
+
+            case '/clearance/generate':
+                (new ClearanceController())->generate();
                 break;
 
             default:

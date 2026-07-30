@@ -3,8 +3,10 @@
     "description": "Barangay Management System",
     "autoload": {
         "psr-4": {
-            "App\\": "app/"
+            "App\\": "App/"
         }
     },
-    "require": {}
+    "require": {
+        "dompdf/dompdf": "^3.1"
+    }
 }

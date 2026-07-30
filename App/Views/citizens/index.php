@@ -68,6 +68,14 @@ Delete
 
 </a>
 
+<a
+class="btn btn-success btn-sm"
+href="/barangay-system/public/clearance/create?id=<?= $row['id'] ?>">
+
+Clearance
+
+</a>
+
 </td>
 
 </tr>
