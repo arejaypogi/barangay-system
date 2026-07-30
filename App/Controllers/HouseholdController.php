@@ -57,4 +57,37 @@ class HouseholdController extends Controller{
                 '/../Views/households/show.php';
     }
 
+    public function addMember(){
+        $citizen = new Citizen();
+
+        $citizen = $citizen->getAll();
+
+        $householdId = $_GET['id'];
+
+
+        require_once __DIR__ . '/../Views/households/add-member.php';
+    }
+
+    public function saveMember(){
+        $member = new HouseholdMember;
+        if(
+            $member->memberExists(
+                $_POST['household_id'],
+                $_POST['citizen_id']
+            )
+        ){
+            die('Citizen already exists in household');
+        }
+
+        $member->addMember(['household_id' => $_POST['household_id'],
+            'citizen_id' => $_POST['citizen_id'],
+            'relationship' => $_POST['relationship']]);
+
+        header("Location: /barangay-system/public/households/show?id=" . $_POST['household_id']);
+
+        exit;
+    }
+
+    
+
 }

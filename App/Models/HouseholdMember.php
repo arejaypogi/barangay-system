@@ -45,4 +45,37 @@ class HouseholdMember extends Database
 
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function countMembers($householdId){
+        $stmt = $this->conn->query("SELECT COUNT(*) total FROM household_members WHERE household_id= :id");
+
+        $stmt->execute(['id'=> $householdId]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function memberExists($householdId, $citizenId){
+        $stmt = $this->conn->prepare("SELECT id FROM household_members WHERE household_id = :household_id AND citizen_id= :citizen_id");
+
+        $stmt->execute(['household_id'=> $householdId,
+            'citizen_id'=> $citizenId]);
+
+        return $stmt->fetch();
+
+        
+    }
+
+    public function census()
+    {
+        $stmt = $this->conn->query(
+            "SELECT
+                zone,
+                COUNT(*) total
+            FROM households
+            GROUP BY zone"
+        );
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 }

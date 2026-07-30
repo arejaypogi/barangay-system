@@ -42,4 +42,28 @@ class Household extends Database{
             return $stmt->fetch(PDO::FETCH_ASSOC);
         }
 
+    public function generateNumber()
+    {
+        $stmt = $this->conn->query(
+            "SELECT MAX(id) last_id
+            FROM households"
+        );
+
+        $last =
+            $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $next =
+            ($last['last_id'] ?? 0) + 1;
+
+        return 'HH-' .
+            date('Y') .
+            '-' .
+            str_pad(
+                $next,
+                4,
+                '0',
+                STR_PAD_LEFT
+            );
+    }
+    
 }

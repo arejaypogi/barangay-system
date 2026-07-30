@@ -7,7 +7,7 @@
 method="POST"
 action="/barangay-system/public/households/store">
 
-<label>Household Number</label>
+<label></label>
 
 <input
 type="text"

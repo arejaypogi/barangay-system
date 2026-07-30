@@ -36,6 +36,10 @@ Zone:
 
 </p>
 
+<a href="/barangay-system/public/households/add-member?id=<?= $row['id'] ?>" class="btn btn-success">
+    Add Member
+</a>
+
 <hr>
 
 <h4>Family Members</h4>

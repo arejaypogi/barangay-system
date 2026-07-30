@@ -102,6 +102,14 @@ class Router{
                 (new HouseholdController())->show();
                 break;
 
+            case '/households/add-member':
+                (new HouseholdController())->addMember();
+                break;
+
+            case '/households/save-member':
+                (new HouseholdController())->saveMember();
+                break;
+
             default:
                 echo "<h1>404 Not Found</h1>";
         }

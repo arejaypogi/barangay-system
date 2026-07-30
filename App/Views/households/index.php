@@ -5,7 +5,7 @@
 
 <a
 class="btn btn-primary"
-href="/barangay-system/public/households/create">
+href="/barangay-system/public/households/create" >
 
 Create Household
 
