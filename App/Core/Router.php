@@ -9,6 +9,7 @@ use App\Controllers\HomeController;
 use App\Controllers\DashboardController;
 use App\Controllers\ClearanceController;
 use App\Controllers\HouseholdController;
+use App\Controllers\BlotterController;
 use App\Models\Clearance;
 
 
@@ -108,6 +109,22 @@ class Router{
 
             case '/households/save-member':
                 (new HouseholdController())->saveMember();
+                break;
+
+            case '/blotters':
+                (new BlotterController())->index();
+                break;
+
+            case '/blotters/create':
+                (new BlotterController())->create();
+                break;
+
+            case '/blotters/store':
+                (new BlotterController())->store();
+                break;
+
+            case '/blotters/show':
+                (new BlotterController())->show();
                 break;
 
             default:

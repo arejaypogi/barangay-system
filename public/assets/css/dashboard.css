@@ -1,0 +1,37 @@
+.dashboard-card{
+
+    border:none;
+
+    border-radius:15px;
+
+    transition:.3s;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+.dashboard-card:hover{
+
+    transform:translateY(-5px);
+
+}
+
+.card-header{
+
+    font-weight:bold;
+
+    background:white;
+
+}
+
+.table{
+
+    margin-bottom:0;
+
+}
+
+.btn{
+
+    border-radius:10px;
+
+}
