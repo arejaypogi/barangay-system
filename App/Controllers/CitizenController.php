@@ -9,6 +9,11 @@ class CitizenController extends Controller{
     public function index(){
         $citizen = new Citizen();
 
+        $totalCitizens = $citizen->total();
+        $male = $citizen->maleCount();
+        $female = $citizen->femaleCount();
+        $senior = $citizen->seniorCount();
+
         $citizens = $citizen->getAll();
 
         require_once __DIR__ . '/../Views/citizens/index.php';
