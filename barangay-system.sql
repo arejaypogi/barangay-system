@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 07, 2026 at 05:15 AM
+-- Generation Time: Aug 14, 2026 at 09:00 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -65,7 +65,9 @@ CREATE TABLE `barangay_officials` (
 --
 
 INSERT INTO `barangay_officials` (`id`, `citizen_id`, `position`, `committee`, `term_start`, `term_end`, `contact_number`, `email`, `photo`, `signature`, `status`, `first_name`, `last_name`, `middle_name`, `gender`, `birthdate`, `address`) VALUES
-(1, NULL, 'Barangay Captain', 'Executive', '1995-12-05', '2028-12-05', '0923456789', NULL, '1785820199_ChatGPT Image Feb 28, 2026, 04_26_03 PM.png', 'sign_1785820199_gns.png', 'Active', 'Captain1', 'Captain1', 'Captain1', 'Male', '1997-12-05', 'Captain1');
+(1, NULL, 'Barangay Captain', 'Executive', '1995-12-05', '2028-12-05', '0923456789', NULL, '1785820199_ChatGPT Image Feb 28, 2026, 04_26_03 PM.png', 'sign_1785820199_gns.png', 'Active', 'Captain1', 'Captain1', 'Captain1', 'Male', '1997-12-05', 'Captain1'),
+(2, NULL, 'Kagawad 1', 'Health', '2026-08-24', '2026-08-27', '0923456789', NULL, '1786507959_viber_image_2025-10-24_18-52-05-231.png', '', 'Active', 'Konsehal 1', 'Konsehal 1', 'Konsehal 1', 'Female', '1995-12-05', 'Baritan'),
+(3, NULL, 'Barangay Captain', 'Executive', '0000-00-00', '0000-00-00', '', NULL, '', '', 'Active', '', '', '', NULL, '0000-00-00', '');
 
 -- --------------------------------------------------------
 
@@ -166,7 +168,14 @@ CREATE TABLE `citizens` (
 --
 
 INSERT INTO `citizens` (`id`, `first_name`, `middle_name`, `last_name`, `gender`, `birthday`, `birth_place`, `civil_status`, `religion`, `occupation`, `email`, `contact_number`, `zone`, `photo`, `senior`, `voter_status`) VALUES
-(1, 'citizen12', 'citizen1', 'citizen1', 'Male', '1998-12-01', 'citizen1', 'citizen1', 'citizen1', 'citizen1', 'citizen1@gmail.com', '0923456789', 'Zone 1', '1785814205_images (1).jpg', 'No', 'Yes');
+(1, 'citizen12', 'citizen1', 'citizen1', 'Male', '1998-12-01', 'citizen1', 'citizen1', 'citizen1', 'citizen1', 'citizen1@gmail.com', '0923456789', 'Zone 1', '1785814205_images (1).jpg', 'No', 'Yes'),
+(3, 'citizen12', 'citizen1', 'citizen1', '', '1998-12-01', 'citizen1', 'citizen1', NULL, 'citizen1', 'citizen1@gmail.com', NULL, 'Zone 1', '', 'No', 'Yes'),
+(4, 'citizen12', 'citizen1', 'citizen1', '', '1998-12-01', 'citizen1', 'citizen1', NULL, 'citizen1', 'citizen1@gmail.com', NULL, 'Zone 1', '', 'No', 'Yes'),
+(5, 'test1', 'test1', 'test1', 'Female', '2026-08-03', NULL, 'test1', NULL, 'test1', 'test1@gmail.com', NULL, 'Zone 2', '1786687560_viber_image_2025-10-24_18-52-05-231.png', 'No', 'Yes'),
+(6, 'test1', 'test1', 'test1', '', '2026-08-03', '', 'test1', NULL, 'test1', 'test1@gmail.com', NULL, 'Zone 2', '', 'No', 'Yes'),
+(7, 'test1', 'test1', 'test1', '', '2026-08-03', '', 'test1', NULL, 'test1', 'test1@gmail.com', NULL, 'Zone 2', '', 'No', 'Yes'),
+(8, 'test1', 'test1', 'test1', '', '2026-08-03', '', 'test1', NULL, 'test1', 'test1@gmail.com', NULL, 'Zone 2', '', 'No', 'Yes'),
+(9, 'test1', 'test1', 'test1', 'Male', '2026-08-03', '', 'test1', NULL, 'test1', 'test1@gmail.com', NULL, 'Zone 2', '', 'No', 'Yes');
 
 -- --------------------------------------------------------
 
@@ -201,8 +210,15 @@ CREATE TABLE `clearances` (
   `clearance_no` varchar(30) DEFAULT NULL,
   `purpose` varchar(255) DEFAULT NULL,
   `issued_by` int(11) DEFAULT NULL,
-  `issued_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `issued_date` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `clearances`
+--
+
+INSERT INTO `clearances` (`id`, `citizen_id`, `clearance_no`, `purpose`, `issued_by`, `issued_date`) VALUES
+(1, 9, 'BC-2026-000001', 'testing only', NULL, '2026-08-13 16:00:00');
 
 -- --------------------------------------------------------
 
@@ -259,7 +275,10 @@ CREATE TABLE `household_members` (
 --
 
 INSERT INTO `household_members` (`id`, `household_id`, `citizen_id`, `relationship`) VALUES
-(1, 1, 1, 'Wife');
+(1, 1, 1, 'Wife'),
+(2, 1, 3, 'Daughter'),
+(3, 1, 5, 'Grandfather'),
+(4, 1, 6, 'Brother');
 
 -- --------------------------------------------------------
 
@@ -390,7 +409,7 @@ ALTER TABLE `audit_logs`
 -- AUTO_INCREMENT for table `barangay_officials`
 --
 ALTER TABLE `barangay_officials`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `blotters`
@@ -408,7 +427,7 @@ ALTER TABLE `blotter_history`
 -- AUTO_INCREMENT for table `citizens`
 --
 ALTER TABLE `citizens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `citizen_classifications`
@@ -420,7 +439,7 @@ ALTER TABLE `citizen_classifications`
 -- AUTO_INCREMENT for table `clearances`
 --
 ALTER TABLE `clearances`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `documents`
@@ -438,7 +457,7 @@ ALTER TABLE `households`
 -- AUTO_INCREMENT for table `household_members`
 --
 ALTER TABLE `household_members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`
