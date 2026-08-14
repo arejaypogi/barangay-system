@@ -175,7 +175,7 @@
             </div>
         </div>
 
-        <div class="col-md-4">
+        <div class="col-md-12">
             <div class="card shadow">
                 <div class="card-header">
                     Quick Actions
@@ -196,8 +196,15 @@
                 </div>
             </div>
         </div>
+
+        
     </div>
 </div>
 
 
 <?php require_once __DIR__.'/../layouts/footer.php'; ?>
+
+
+
+
+

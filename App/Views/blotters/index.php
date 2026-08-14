@@ -100,7 +100,7 @@
                             </td>
                             <td class="text-center">
                                 <div class="btn-group">
-                                    <a href="barangay-system/public/blotters/show?id=<?= $row['id'] ?>" class="btn btn-sm btn-outline-primary" title="View">
+                                    <a href="/barangay-system/public/blotters/show?id=<?= $row['id'] ?>" class="btn btn-sm btn-outline-primary" title="View">
                                         <i class="bi bi-eye"></i>
                                     </a>
                                     <a href="#" class="btn btn-sm btn-outline-warning" title="Edit">

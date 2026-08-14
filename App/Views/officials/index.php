@@ -18,6 +18,7 @@
             </i>
         </a>
     </div>
+
     <div class="row">
         <!--Table--> 
         <div class="card border-0 shadow-sm">
@@ -40,6 +41,7 @@
                                 <th>Position</th>
                                 <th>Committee</th>
                                 <th>Status</th>
+                                <th>Actions</th>
                             </tr>
                             <?php foreach($official as $row): ?>
                         </thead>
@@ -72,6 +74,19 @@
                                 <td>
                                     <div class="fw-semibold">
                                         <?= $row['status'] ?>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <div class="btn group">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-warning">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-danger">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
