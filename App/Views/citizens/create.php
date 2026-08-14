@@ -63,7 +63,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <label for="" class="form-label">Birth Place</label>
-                    <input type="text" name="birthplace" class="form-control">
+                    <input type="text" name="birth_place" class="form-control">
                 </div>
                 <div class="col-md-6">
                     <label for="" class="form-label">Civil Status</label>
