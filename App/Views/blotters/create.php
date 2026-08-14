@@ -1,63 +1,77 @@
-<?php
-
-use App\Models\Citizen;
-
- require_once __DIR__.'/../layouts/header.php'; ?>
+<?php require_once __DIR__.'/../layouts/header.php'; ?>
 <?php require_once __DIR__.'/../layouts/sidebar.php'; ?>
 
-<h2>New Blotter Record</h2>
+<div class="container-fluid py-4">
+    <h2 class="fw-semibold mb-4">New Blotter Record</h2>
 
-<form action="/barangay-system/public/blotters/store" method="POST">
-    <label for="">Complainant</label>
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form action="/barangay-system/public/blotters/store" method="POST">
 
-    <select name="complainant_id" class="form-control">
-        <?php foreach($citizens as $row): ?>
-        <option value="<?= $row['id'] ?>">
-            <?= $row['first_name'] ?>
-            <?= $row['last_name'] ?>
-        </option>
-        <?php endforeach; ?>
-    </select>
-    <br>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="complainant_id" class="form-label">Complainant</label>
+                        <select name="complainant_id" id="complainant_id" class="form-select" required>
+                            <option value="" selected disabled>-- Select Complainant --</option>
+                            <?php foreach ($citizens as $row): ?>
+                                <option value="<?= $row['id'] ?>">
+                                    <?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
 
-    <label for="">Respondent</label>
-    <select name="respondent_id" id="" class="form-control">
-        <?php foreach($citizens as $row): ?>
-        <option value="<?= $row['id'] ?>">
-            <?= $row['first_name'] ?>
-            <?= $row['last_name'] ?>
-        </option>
-        <?php endforeach; ?>
-    </select>
-    <br>
+                    <div class="col-md-6 mb-3">
+                        <label for="respondent_id" class="form-label">Respondent</label>
+                        <select name="respondent_id" id="respondent_id" class="form-select" required>
+                            <option value="" selected disabled>-- Select Respondent --</option>
+                            <?php foreach ($citizens as $row): ?>
+                                <option value="<?= $row['id'] ?>">
+                                    <?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
 
-    <label for="">Incident Type</label>
-    <input type="text" name="incident_type" class="form-control">
-    <br>
+                <div class="mb-3">
+                    <label for="incident_type" class="form-label">Incident Type</label>
+                    <input type="text" name="incident_type" id="incident_type" class="form-control" required>
+                </div>
 
-    <label for="">Date</label>
-    <input type="date" class="form-control" name="incident_date">
-    <br>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="incident_date" class="form-label">Date</label>
+                        <input type="date" name="incident_date" id="incident_date" class="form-control" required>
+                    </div>
 
-    <label for="">Time</label>
-    <input type="time" name="incident_time" id="" class="form-control">
-    <br>
+                    <div class="col-md-6 mb-3">
+                        <label for="incident_time" class="form-label">Time</label>
+                        <input type="time" name="incident_time" id="incident_time" class="form-control" required>
+                    </div>
+                </div>
 
-    <label for="">Location</label>
-    <input type="text" name="incident_location" class="form-contro">
-    <br>
+                <div class="mb-3">
+                    <label for="incident_location" class="form-label">Location</label>
+                    <input type="text" name="incident_location" id="incident_location" class="form-control" required>
+                </div>
 
-    <label for="">Description</label>
-    <input type="text" name="description" id="" class="form-control">
-    <br>
+                <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea name="description" id="description" class="form-control" rows="4" required></textarea>
+                </div>
 
-    <label for="">Status</label>
-    <input type="hidden" name="status" value="Pending">
-    <br>
-    <br>
+                <input type="hidden" name="status" value="Pending">
 
-    <button class="btn btn-danger">Save Blotter</button>
-
-</form>
+                <button type="submit" class="btn btn-danger">
+                    <i class="bi bi-shield-plus"></i> Save Blotter
+                </button>
+                <a href="/barangay-system/public/blotters" class="btn btn-outline-secondary">
+                    Cancel
+                </a>
+            </form>
+        </div>
+    </div>
+</div>
 
 <?php require_once __DIR__.'/../layouts/footer.php'; ?>
